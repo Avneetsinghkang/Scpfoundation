@@ -1,0 +1,225 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a; /* Deeper black background */
+  color: #db6060;
+  font-family: 'Inter', 'Arial', sans-serif;
+  line-height: 1.7;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1000px;
+  margin: 0; 
+  padding: 2.5rem;
+  background-color: #e7dede;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  align-items: center;
+  border-bottom: 1px solid #4d4646;
+  padding-bottom: 1.5rem;
+  justify-content: center; 
+}
+
+nav h2 {
+  flex-basis: 100%;
+  font-size: 5.6rem;
+  margin-bottom: 1.2rem;
+  color: #2a2a2c; 
+  font-weight: 1000;
+  text-align: center; 
+}
+
+button {
+  background-color: #911a1a;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  margin: 10px;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 16px rgba(6, 214, 160, 0.3);
+  font-weight: 700;
+}
+
+button:hover {
+  background-color: #0c3b3b;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(6, 214, 160, 0.5);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+
+.detail {
+  background: #222222;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+  margin-bottom: 2.5rem;
+  margin: 90px;
+  gap: 10px;
+  animation: slideIn 0.4s ease forwards;
+  text-align: center; 
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+}
+.detail h2 {
+  margin: 0 0 0.6rem 0;
+  font-size: 2.2rem;
+  color: #2fddaf;
+  font-weight: 800;
+}
+
+.detail h4 {
+  margin-top: 0.3rem;
+  color: #21c4a9;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.detail img {
+  max-width: 80%; 
+  border-radius: 12px;
+  margin: 1.2rem auto; 
+  box-shadow: 0 5px 18px rgba(6, 214, 160, 0.3);
+}
+
+.detail p {
+  color: #d0d0d0;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  max-width: 80%; 
+}
+
+
+.admin {
+  background: #222222;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+  color: #e5e5e5;
+  text-align: center; 
+}
+
+.admin h2 {
+  margin-bottom: 1.8rem;
+  font-size: 2rem;
+  color: #e5f138;
+  font-weight: 800;
+}
+
+
+table {
+  width: 100%;
+  max-width: 80%; 
+  margin: 1.2rem auto; 
+  border-collapse: collapse;
+  font-size: 1.25rem;
+  color: #e6d3d3;
+}
+
+th, td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #4a4a4a;
+  vertical-align: middle;
+}
+
+th {
+  background-color: #1a1a1a;
+  text-align: left;
+  font-weight: 700;
+  color: #41ad84;
+  font-style: italic;
+  font-size: larger;
+}
+
+td img {
+  max-width: 100px; 
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(76, 138, 121, 0.3);
+  display: block; 
+  margin: 0 auto;
+}
+
+
+.form {
+  margin: 2.5rem auto; 
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+  align-items: center;
+}
+
+.form input {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 1.2rem;
+  border: 2px solid #444;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form input::placeholder {
+  color: #777;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #06d6a0;
+  background-color: #252525;
+}
+
+
+.form button {
+  padding: 0.8rem 1.8rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  background-color: #89e0cb;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 9px 20px rgba(49, 212, 169, 0.4);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form button:hover {
+  background-color: #46d4aa;
+  transform: translateY(-3px);
+}
+
+.form button:active {
+  transform: scale(0.95);
+}
+
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
