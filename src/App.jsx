@@ -3,13 +3,13 @@ import { supabase } from './supabaseClient';
 import './App.css';
 
 function App() {
-  // Component State 
+  
   const [records, setRecords] = useState([]);
   const [view, setView] = useState('home');
   const [selecteditem, setSelecteditem] = useState(null);
   const [form, setForm] = useState({ item: '', class: '', description: '', containment: '', image: '' });
 
-  // Fetch all records on application load
+  
   useEffect(() => {
     fetchRecords();
   }, []);
@@ -19,50 +19,44 @@ function App() {
     if (!error) setRecords(data);
   }
 
-  // Generic input handler for form elements
+  
   function handleInputChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  // Send request to Supabase to insert new record
-  // Refresh list of records (fetchRecords) after new record submitted
-  // Resets the form to empty
   async function handleSubmit() {
     await supabase.from('Scp foundation').insert([form]);
     fetchRecords();
     setForm({ item: '', class: '', description: '', containment: '', image: '' });
   }
 
-  // Delete record from Supabase then refresh records after deletion
+
   async function handleDelete(id) {
     await supabase.from('Scp foundation').delete().eq('id', id);
     fetchRecords();
   }
 
-  // Send request to Supabase to update row / record in table
-  // Then refetch all records from table (fetchRecords)
   async function handleEdit(id) {
     await supabase.from('Scp foundation').update(form).eq('id', id);
     fetchRecords();
     setForm({ item: '', class: '', description: '', containment: '', image: '' });
   }
 
-  // Navigate to the next record in the detail view
   function handleNext() {
     const sortedRecords = [...records].sort((a, b) => a.id - b.id);
     const currentIndex = sortedRecords.findIndex(rec => rec.id === selecteditem.id);
-    const nextIndex = (currentIndex + 1) % sortedRecords.length; // Loop back to first record if at the end
+    const nextIndex = (currentIndex + 1) % sortedRecords.length; 
     setSelecteditem(sortedRecords[nextIndex]);
   }
 
   return (
     <div className="app">
-      {/* Nav section. Loop through each record and render a button using the item name */}
+  
       <nav>
         <h2>SCP Files</h2>
         {
           records
-            .sort((a, b) => a.id - b.id) // Sort by id in ascending order
+            .sort((a, b) => a.id - b.id) 
             .map(
               (rec) => (
                 <button key={rec.id} onClick={() => { setSelecteditem(rec); setView('detail') }}>
@@ -71,11 +65,11 @@ function App() {
               )
             )
         }
-        {/* Admin button */}
+        
         <button onClick={() => setView('admin')}>Admin</button>
       </nav>
 
-      {/* Display record section (detail view mode) */}
+      
       {
         view === 'detail' && selecteditem && (
           <div className="detail">
@@ -92,7 +86,7 @@ function App() {
         )
       }
 
-      {/* Admin section CRUD functions (admin view mode) */}
+      
       {
         view === 'admin' && (
           <div className="admin">
@@ -116,7 +110,7 @@ function App() {
                     <td><img src={rec.image} alt="" width="50" /></td>
                     <td>
                       <button onClick={() => setForm(rec)}>Edit</button>
-                      <br></br>
+                     
                       <button onClick={() => handleDelete(rec.id)}>Delete</button>
                     </td>
                   </tr>
